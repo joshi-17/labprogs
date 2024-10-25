@@ -1,0 +1,10 @@
+show databases;
+create database INSURANCE178;
+use supplier;
+use INSURANCE178;
+show tables;
+create table person(driver_id varchar(10) primary key,name varchar(20),address varchar(30));
+create table car(reg_num varchar(20) primary key,model varchar(20),year int);
+create table accident(report_num int primary key,accident_date date,location varchar(20));
+create table owns(driver_id varchar(20) ,reg_num varchar(20), foreign key(driver_id) references person(driver_id),foreign key(reg_num) references car(reg_num));
+create table participated(driver_id varchar(20),reg_num varchar(20),report_num int,damage_amount int,primary key(driver_id,reg_num,report_num),foreign key(driver_id) references person(driver_id),foreign key(reg_num) references car(reg_num),foreign key(report_num) references accident(report_num));
