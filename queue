@@ -1,0 +1,42 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.ref=None
+class queue:
+    def __init__(self):
+        self.rear=None
+        self.front=None
+    def enqueue(self,data):
+        new_node=Node(data)
+        if self.rear is None:
+            self.rear=new_node
+            self.front=new_node
+        else:
+            self.rear.ref=new_node
+            self.rear=new_node
+    def dequeue(self):
+        if self.front is None:
+            print("No elements present")
+            return
+        dequeued_value=self.front.data
+        self.front=self.front.ref
+        if self.front is None:
+            self.rear=None
+        return dequeued_value
+    def display(self):
+        if self.front is None:
+            print("Queue is empty")
+            return
+        n=self.front
+        while n is not None:
+            print(n.data,"-->",end=" ")
+            n=n.ref
+        print("none")
+q=queue()
+q.enqueue(10)
+q.enqueue(20)
+q.enqueue(30)
+q.enqueue(40)
+q.display()
+print("dequeued:",q.dequeue())
+q.display()
