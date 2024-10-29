@@ -1,0 +1,17 @@
+import numpy as np
+import sympy as sp
+s=np.matrix([[2,1],[1,3]])
+t=np.matrix([[1,2,3],[3,4,-1]])
+try:
+    mt=np.dot(s,t)
+    print("Matrix of composite function s0t(x) is \n",mt)
+    u=np.matrix([[1,2,3]]).T
+    mtf=np.dot(mt,u)
+    print("Image is \n",mtf)
+except:
+    print("Composite function s0t(x) doesnt exist")
+try:
+    mt2=np.dot(t,s)
+    print("Matrix of composite function t0s(x) is \n",mt2)
+except:
+    print("Composite function t0s(x) doesnt exist")
