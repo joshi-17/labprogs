@@ -1,0 +1,14 @@
+import numpy as np
+import sympy as sp
+f=np.matrix([[2,0,0],[0,1,1]])
+g=np.matrix([[0,1],[1,0]])
+try:
+    mt=np.dot(g,f)
+    print("Matrix of composite function g0f(x) is \n",mt)
+except:
+    print("Composite function g0f(x) doesnt exist")
+try:
+    mt2=np.dot(f,g)
+    print("Matrix of composite function f0g(x) is \n",mt2)
+except:
+    print("Composite function f0g(x) doesnt exist")
