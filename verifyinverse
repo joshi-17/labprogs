@@ -1,0 +1,21 @@
+import numpy as np
+import sympy as sp
+g=np.matrix([[2,0,0],[4,-1,0],[2,3,-1]])
+g2=np.dot(g,g)
+g3=np.dot(g2,g)
+v=np.matrix([[-1,-2,-3]]).T
+w=np.matrix([[1,2,3]]).T
+g2123=np.dot(g2,w)
+g3123=np.dot(g3,v)
+print("The value of g^2(1,2,3) is \n",g2123)
+print("The value of g^3(-1,-2,-3) is \n",g3123)
+print("Value of g^2 is \n",g2)
+print("Value of g^3 is \n",g3)
+d=np.linalg.det(g)
+if d!=0:
+    print("G is invertible and inverse exists")
+else:
+    print("G is not invertible")
+i=np.linalg.inv(g)
+np.set_printoptions(precision=4,suppress=True)
+print("The inverse matrix is\n",i)
