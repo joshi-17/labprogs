@@ -1,7 +1,7 @@
 class Node:
     def __init__(self,data):
         self.data=data
-        self.next=None
+        self.ref=None
         
 class Stack:
     def __init__(self):
@@ -10,28 +10,28 @@ class Stack:
         if self.top==None:
             print("Stack is empty")
         else:
-            temp=self.top
-            while temp:
-                print(temp.data)
-                temp=temp.next
+            n=self.top
+            while n is not None:
+                print(n.data)
+                n=n.ref
             
             print("top of the stack is ",self.top.data)
     def push(self):   
-        n=int(input("enter the no of elements  u want to insert: "))
-        for i in range(n):
-            x=int(input("Enter the element: "))
-            new=Node(x)
+        x=int(input("enter the no of elements  u want to insert: "))
+        for i in range(x):
+            y=int(input("Enter the element: "))
+            new=Node(y)
             if self.top is None:
                 self.top=new
-                self.top.next=None
+                self.top.ref=None
             else:
-                new.next=self.top
+                new.ref=self.top
                 self.top=new
     def pop(self):
         if self.top is None:
             print("Stack is empty")
         else:
-            self.top=self.top.next
+            self.top=self.top.ref
             
 st1=Stack()
 st1.push()
