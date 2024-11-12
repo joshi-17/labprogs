@@ -1,0 +1,41 @@
+#geometrical of linear transformation
+from sympy import *
+import matplotlib.pyplot as plt
+ans=[]
+k=int(input("enter the value of k"))
+theta=int(input("enter the value of theta"))
+
+
+ans.append(Matrix([[1,0],[0,-1]]))
+ans.append(Matrix([[-1,0],[0,1]]))
+ans.append(Matrix([[-1,0],[0,-1]]))
+ans.append(Matrix([[0,1],[1,0]]))
+ans.append(Matrix([[0,-1],[-1,0]]))
+ans.append(Matrix([[k,0],[0,1]]))
+ans.append(Matrix([[1,0],[0,k]]))
+ans.append(Matrix([[1,0],[k,1]]))
+ans.append(Matrix([[1,k],[0,1]]))
+ans.append(Matrix([[1,k],[0,1]]))
+ans.append(Matrix([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]]))
+print("enter the vector")
+l=[]
+for i in range(0,2):
+  l.append(int(input()))
+m=Matrix(l)
+
+print("the vector is")
+display(m)
+plt.plot(m[0],m[1])
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('vector')
+plt.show()
+for i in ans:
+  
+  x=i*m
+
+  plt.plot(x[0],x[1])
+  plt.xlabel('x')
+  plt.ylabel('y')
+  plt.title('vector')
+  plt.show()
