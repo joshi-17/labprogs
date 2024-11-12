@@ -1,35 +1,95 @@
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Define the transformation matrix 'a'
-a = np.matrix([[1, 0], [0, -1]])
+# Function to plot the vectors
+def graph(result, x, y):
+    plt.figure(figsize=(6, 6))
+    
+    # Plot the original vector (b)
+    plt.quiver(0, 0, x, y, angles='xy', scale_units='xy', scale=1, color='blue', label="Original Vector (b)")
+    
+    # Plot the transformed vector (a * b)
+    plt.quiver(0, 0, result[0, 0], result[1, 0], angles='xy', scale_units='xy', scale=1, color='red', label="Transformed Vector (a * b)")
 
-# Input for x and y coordinates
-x = int(input("Enter x coordinate: "))
-y = int(input("Enter y coordinate: "))
+    # Setting limits for better visualization
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
 
-# Create the vector b
-b = np.matrix([x, y]).T
+    # Adding labels and title
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(True)
+    plt.legend()
 
-# Apply the matrix transformation
-transformed_b = a * b
+    # Show the plot
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.title("Matrix Transformation Visualization")
+    plt.show()
+    
+    
+def reflection(x, y):
+  
+    a = np.matrix([[1, 0], [0, -1]])
+    b = np.matrix([x, y]).T
+    result = a * b
+    print("Reflection with respect to the x-axis is: \n", result)
+    graph(result, x, y)
+    
+    a=nu.matrix([[-1,0],[0,1]])
+    b=nu.matrix([x,y]).T
+    print("reflection wrt to y axis is: \n",a*b)
+    graph(a*b, x, y)
+    
 
-# Plotting the vectors
-plt.figure(figsize=(6, 6))
-plt.quiver(0, 0, x, y, angles='xy', scale_units='xy', scale=1, color='blue', label="Original Vector (b)")
-plt.quiver(0, 0, transformed_b[0, 0], transformed_b[1, 0], angles='xy', scale_units='xy', scale=1, color='red', label="Transformed Vector (a * b)")
+    
 
-# Setting limits for better visualization
-plt.xlim(-10, 10)
-plt.ylim(-10, 10)
+    
 
-# Adding labels and title
-plt.axhline(0, color='black',linewidth=0.5)
-plt.axvline(0, color='black',linewidth=0.5)
-plt.grid(True)
-plt.legend()
+    
+    
 
-# Show the plot
-plt.gca().set_aspect('equal', adjustable='box')
-plt.title("Matrix Transformation Visualization")
-plt.show()
+    a=nu.matrix([[-1,0],[0,1]])
+    b=nu.matrix([x,y]).T
+    print("reflection wrt to y axis is: \n",a*b)
+    graph(a*b, x, y)
+    
+    
+    a=nu.matrix([[-1,0],[0,-1]])
+    b=nu.matrix([x,y]).T
+    print("reflection wrt to  origin  is: \n",a*b)
+    graph(a*b, x, y)
+    
+    a=nu.matrix([[0,1],[1,0]])
+    b=nu.matrix([x,y]).T
+    print("reflection wrt to y=x  is: \n",a*b)
+    graph(a*b, x, y)
+    
+    a=nu.matrix([[0,-1],[-1,0]])
+    b=nu.matrix([x,y]).T
+    print("reflection wrt to y=-x  is: \n",a*b)
+    graph(a*b, x, y)
+    
+    k=int(input("Enter the value of k: "))
+    a=nu.matrix([[k,0],[0,1]])
+    
+    b=nu.matrix([k+x,y]).T
+    print("reflection wrt to horizontal contraction is:\n ",a*b)
+    graph(a*b, x, y)
+    
+    
+    k=int(input("Enter the value of k: "))
+    a=nu.matrix([[1,0],[0,k]])
+    
+    b=nu.matrix([x,k+y]).T
+    print("reflection wrt to vertical contraction is:\n ",a*b)
+    graph(a*b, x, y)
+    
+    
+x=int(input("Enter x axis: "))
+y=int(input("Enter y axis"))
+
+reflection(x,y)
+    
+    
