@@ -1,3 +1,4 @@
+import numpy as np
 #geometrical of linear transformation
 from sympy import *
 import matplotlib.pyplot as plt
@@ -25,17 +26,31 @@ m=Matrix(l)
 
 print("the vector is")
 display(m)
-plt.plot(m[0],m[1])
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title('vector')
+x_coord = np.array(m.row(0)).astype(float)[0]  # Extract single value
+y_coord = np.array(m.row(1)).astype(float)[0]
+plt.figure(figsize=(6, 6))
+origin = [0], [0]  
+plt.quiver(*origin, x_coord, y_coord, color='r', angles='xy', scale_units='xy', scale=1)
+plt.xlim(-3, 3)
+plt.ylim(-3, 3)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Vector v = (1, -2)')
+plt.grid(True)
 plt.show()
 for i in ans:
   
   x=i*m
 
-  plt.plot(x[0],x[1])
-  plt.xlabel('x')
-  plt.ylabel('y')
-  plt.title('vector')
+  x_coord = np.array(x.row(0)).astype(float)[0]
+  y_coord = np.array(x.row(1)).astype(float)[0]
+  plt.figure(figsize=(6, 6))
+  origin = [0], [0] 
+  plt.quiver(*origin, x_coord, y_coord, color='r', angles='xy', scale_units='xy', scale=1)
+  plt.xlim(-3, 3)
+  plt.ylim(-3, 3)
+  plt.xlabel('X-axis')
+  plt.ylabel('Y-axis')
+  plt.grid(True)
   plt.show()
+
