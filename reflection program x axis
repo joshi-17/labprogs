@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the transformation matrix 'a'
+a = np.matrix([[1, 0], [0, -1]])
+
+# Input for x and y coordinates
+x = int(input("Enter x coordinate: "))
+y = int(input("Enter y coordinate: "))
+
+# Create the vector b
+b = np.matrix([x, y]).T
+
+# Apply the matrix transformation
+transformed_b = a * b
+
+# Plotting the vectors
+plt.figure(figsize=(6, 6))
+plt.quiver(0, 0, x, y, angles='xy', scale_units='xy', scale=1, color='blue', label="Original Vector (b)")
+plt.quiver(0, 0, transformed_b[0, 0], transformed_b[1, 0], angles='xy', scale_units='xy', scale=1, color='red', label="Transformed Vector (a * b)")
+
+# Setting limits for better visualization
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+
+# Adding labels and title
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.grid(True)
+plt.legend()
+
+# Show the plot
+plt.gca().set_aspect('equal', adjustable='box')
+plt.title("Matrix Transformation Visualization")
+plt.show()
