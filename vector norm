@@ -1,0 +1,15 @@
+import numpy as np
+import math
+v=np.array(([3,-4,1]))
+l1=0
+l2=0
+l2h=0
+li=0
+for i in v:
+    l1+=abs(i)
+    l2h+=i**2
+l2=math.sqrt(l2h)
+li=max(abs(v))
+print("L1 norm is = ",l1)
+print("L2 norm is = ",l2)
+print("Linfinity norm is = ",li)
