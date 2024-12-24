@@ -1,0 +1,5 @@
+import numpy as np
+A = np.matrix([[1, 0], [1, 1], [1, 2], [1, 3]])
+b = np.matrix([[-1], [3], [5], [7]])
+x = np.linalg.solve(A.T @ A, A.T @ b)
+print("The values of a and b are:\n", x)
