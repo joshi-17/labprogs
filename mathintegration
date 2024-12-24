@@ -1,0 +1,30 @@
+import sympy as sp
+t = sp.symbols('t'
+f1 = 1
+f2 = t
+f3 = t**
+def inner_product(f, g):
+    return sp.integrate(f * g, (t, -1, 1))
+
+def gram_schmidt(f1, f2, f3):
+
+    v1 = f1
+    proj_f2_on_v1 = (inner_product(f2, v1) / inner_product(v1, v1)) * v1
+    v2 = f2 - proj_f2_on_v1
+    proj_f3_on_v1 = (inner_product(f3, v1) / inner_product(v1, v1)) * v1
+    proj_f3_on_v2 = (inner_product(f3, v2) / inner_product(v2, v2)) * v2
+    v3 = f3 - proj_f3_on_v1 - proj_f3_on_v2
+    return v1, v2, v3
+               
+v1, v2, v3 = gram_schmidt(f1, f2, f3)
+v1 = sp.simplify(v1)
+v2 = sp.simplify(v2)
+v3 = sp.simplify(v3)
+print("Orthogonal Basis:")
+print(f"v1(t): {v1}")
+print(f"v2(t): {v2}")
+print(f"v3(t): {v3}")
+print("\nChecking the orthogonality (inner products):")
+print(f"⟨v1, v2⟩ = {inner_product(v1, v2)}")
+print(f"⟨v1, v3⟩ = {inner_product(v1, v3)}")
+print(f"⟨v2, v3⟩ = {inner_product(v2, v3)}")
