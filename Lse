@@ -1,0 +1,8 @@
+import numpy as np
+A=np.matrix([[2,1],[1,0],[0,-1],[-1,1]])
+b=np.matrix([[3,1,2,-1]])
+X=np.linalg.solve((np.dot(A.T,A)),(np.dot(A.T,b.T)))
+print(X)
+y=(np.dot(A,X)-b.T)
+z=np.sum(np.power(y,2))
+print(z**0.5)
